@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/lightbox.min.css" />
     <link rel="stylesheet" href="css/utilities.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link
@@ -17,7 +18,7 @@
   </head>
   <body id="home">
     <header class="hero">
-      <div id="navbar" class="navbar">
+      <div id="navbar" class="navbar top">
         <h1 class="logo">
           <span class="text-primary">
             <i class="fas fa-book-open"></i> Suave
@@ -116,20 +117,44 @@
         </header>
         <div class="row">
           <div class="column">
-            <img src="images/cases/cases1.jpg" alt="">
+            <a href="images/cases/cases1.jpg" data-lightbox="cases" data-title="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+            corporis!">
+              <img src="images/cases/cases1.jpg" alt="">
+            </a>
+            <a href="images/cases/cases2.jpg" data-lightbox="cases" data-title="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+            corporis!">
             <img src="images/cases/cases2.jpg" alt="">
+          </a>
           </div>
           <div class="column">
+            <a href="images/cases/cases3.jpg" data-lightbox="cases" data-title="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+            corporis!">
             <img src="images/cases/cases3.jpg" alt="">
+          </a>
+          <a href="images/cases/cases4.jpg" data-lightbox="cases" data-title="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+            corporis!">
             <img src="images/cases/cases4.jpg" alt="">
+          </a>
           </div>
           <div class="column">
+            <a href="images/cases/cases5.jpg" data-lightbox="cases" data-title="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+            corporis!">
             <img src="images/cases/cases5.jpg" alt="">
+            </a>
+            <a href="images/cases/cases6.jpg" data-lightbox="cases" data-title="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+            corporis!">
             <img src="images/cases/cases6.jpg" alt="">
+            </a>
           </div>
           <div class="column">
+            <a href="images/cases/cases7.jpg" data-lightbox="cases" data-title="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+            corporis!">
             <img src="images/cases/cases7.jpg" alt="">
+            </a>
+            <a href="images/cases/cases8.jpg" data-lightbox="cases" data-title="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+            corporis!">
             <img src="images/cases/cases8.jpg" alt="">
+            </a>
           </div>
         </div>
       </section>
@@ -229,5 +254,51 @@
       </div>
       <p>Copyright &copy; 2021 - Suave Bank</p>
     </footer>
+
+    <!-- auto scroll function -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+  crossorigin="anonymous">
+</script>
+<script src="js/lightbox.min.js"></script>
+    <script>
+
+      // navbar hide and seek/bounce effect
+      // getting the navbar
+      const navbar = document.getElementById("navbar");
+      let scrolled = false;
+
+      // watching the window if it scrolls at all it fires a function saying if past 100 on the y axis(goes up or down) get rid of top property, else put it back.
+      window.onscroll = function(){
+        if(window.pageYOffset > 100){
+          navbar.classList.remove("top");
+          if(!scrolled){
+            navbar.style.transform = "translateY(-70px)";
+          }
+          setTimeout(function() {
+            navbar.style.transform = "translateY(0)"
+            scrolled = true
+          },200)
+        } else{
+          navbar.classList.add("top");
+          scrolled = false
+        }
+      }
+
+      // smooth scrolling effect
+
+      // $('#navbar a, .btn').on("click", function(e){
+      //   if(this.hash !== ''){
+      //     e.preventDefault();
+      //     const hash = this.hash,
+      //     $('html, body').animate(
+      //       {
+      //         scrollTop: $(hash).offset().top - 100,
+      //       }, 
+      //       800
+      //     );
+      //   }
+      // });
+    </script>
   </body>
 </html>
